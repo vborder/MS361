@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
-from libs.openex import OpenExchangeClient
+import openex
 import os
 
 
@@ -34,7 +34,7 @@ class Currency(Resource):
         if not isinstance(amount, float):
             return "Conversion amount is not in correct format", 404
 
-        client = OpenExchangeClient(os.getenv('APP_ID'))
+        client = openex.OpenExchangeClient(os.getenv('APP_ID'))
         con_amount = client.convert(amount, curr)
         item = {'currency': curr, 'converted_total': f'{con_amount:.2f}'}
 
@@ -42,7 +42,6 @@ class Currency(Resource):
 
 
 api.add_resource(Currency, '/convert')
-app.run(port=5000)
 
 
 if __name__ == '__main__':
