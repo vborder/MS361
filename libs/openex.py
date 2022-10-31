@@ -1,7 +1,7 @@
 import requests
-import config
 from cachetools import cached, TTLCache
 import os
+
 
 class OpenExchangeClient:
     def __init__(self, app_id):
