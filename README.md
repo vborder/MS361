@@ -3,7 +3,7 @@ This is a REST API microservice that takes in a currency (by currency code) and 
 
 ## Using the service
 To use the service, send a GET request to https://ms361.herokuapp.com/convert with the parameters "?curr=<currency_code>&amount=<integer/float>".
-Sample call: https://ms361.herokuapp.com/convert?curr=GBP&amount=100 will convert $100 USD to British pounds. 
+For example, https://ms361.herokuapp.com/convert?curr=GBP&amount=100 will convert $100 USD to British pounds. 
 
 ## Conversion and response
 Once the request is received, the service will call a seperate currency conversion API, perform the conversion in the currency specified, and return a JSON object with the currency and amount.
