@@ -4,7 +4,6 @@ from flask import request
 import openex
 import os
 
-
 app = Flask(__name__)
 api = Api(app)
 

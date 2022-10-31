@@ -1,6 +1,9 @@
 import requests
 from cachetools import cached, TTLCache
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class OpenExchangeClient:
