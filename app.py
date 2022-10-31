@@ -23,6 +23,11 @@ abb = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BA
        'XAF', 'XAG', 'XAU', 'XCD', 'XDR', 'XOF', 'XPD', 'XPF', 'XPT', 'YER', 'ZAR', 'ZMW', 'ZWL']
 
 
+class Visit(Resource):
+    def get(self):
+        return "Please navigate to /convert to use the application"
+
+
 class Currency(Resource):
     def get(self):
         args = request.args
@@ -40,6 +45,7 @@ class Currency(Resource):
         return item, 200
 
 
+api.add_resource(Visit, '/')
 api.add_resource(Currency, '/convert')
 
 
