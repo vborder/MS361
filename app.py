@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
+from flask_cors import CORS
 import openex
 import os
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 abb = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD',
        'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTC', 'BTN', 'BWP',
