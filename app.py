@@ -1,14 +1,13 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
-# from flask_cors import CORS, cross_origin
+from flask_restful.utils import cors
 import openex
 import os
 
 app = Flask(__name__)
 api = Api(app)
-# cors = CORS(app)
-# app.config['CORS_HEADERS'] = 'Content-Type'
+api.decorators = [cors.crossdomain(origin='*')]
 
 
 abb = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD',
