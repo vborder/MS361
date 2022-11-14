@@ -1,14 +1,14 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import openex
 import os
 
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
-# app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 abb = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD',
@@ -27,11 +27,13 @@ abb = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BA
        'XAF', 'XAG', 'XAU', 'XCD', 'XDR', 'XOF', 'XPD', 'XPF', 'XPT', 'YER', 'ZAR', 'ZMW', 'ZWL']
 
 
+@cross_origin()
 class Visit(Resource):
     def get(self):
         return "Please navigate to /convert to use the application"
 
 
+@cross_origin()
 class Currency(Resource):
     def get(self):
         args = request.args
